@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../screens/product_detail_screen.dart';
 import '../providers/product.dart';
+import '../providers/cart.dart';
 
 class ProductItem extends StatelessWidget {
 
@@ -11,6 +12,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final product = Provider.of<Product>(context,listen: false);
+    final cart=Provider.of<Cart>(context,listen: false);
 
     return GridTile(
       child: GestureDetector(
@@ -38,7 +40,9 @@ class ProductItem extends StatelessWidget {
           trailing: IconButton(
             icon: Icon(Icons.shopping_cart),
             color: Theme.of(context).accentColor,
-            onPressed: (){},
+            onPressed: (){
+              cart.addItem(product.id, product.price, product.title);
+            },
           ),
         ),
       ),
