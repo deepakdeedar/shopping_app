@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create:(ctx)=>Cart(),),
         ChangeNotifierProvider(
-          create:(ctx)=>Order(),),
+          create:(ctx)=>Orders(),),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.purple,
           accentColor: Colors.deepOrange,
         ),
-        home: ProductOverviewScreen(),
+        home: ProductsOverviewScreen(),
         routes: {
           ProductDetailScreen.routeName:(ctx) => ProductDetailScreen(),
           CartScreen.routeName:(ctx) => CartScreen(),
